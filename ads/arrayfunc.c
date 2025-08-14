@@ -3,7 +3,7 @@
 int main()
 {
  int a[10];
- int size,i,num,del,position;
+ int size,i,num,del,temp,j;
  printf("enter size of the array");
  scanf("%d",&size);
  printf("enter elements of array");
@@ -23,17 +23,40 @@ scanf("%d",&num);
  {
     if(a[i]==num)
     {
-        printf("element found at index %d ",i);
+        printf("element found at index %d \n",i);
     }
     
  }
-printf("enter the element position to delete \n");
+ for (i = 0; i < size - 1; i++) 
+ {
+        for (j = 0; j < size - i - 1; j++)
+         {
+            
+            if (a[j] > a[j + 1]) 
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+
+   
+    printf("Sorted array: \n");
+    for (i = 0; i < size; i++) 
+    {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+
+printf("\n enter the element position to delete ");
 scanf("%d ",&del);
 for(i=del-1;i<size-1;i++)
 {
     a[i]=a[i+1];
+    size--;
 }
-printf("array after deletion");
+printf("\n array after deletion");
  for(i=0;i<size;i++)
  {
     printf("%d ",a[i]);
