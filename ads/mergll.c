@@ -3,8 +3,10 @@
 struct Node{
     int data;
     struct Node* next;
+    struct Node* prev;
 };
 struct Node* head=NULL;
+struct Node* head1=NULL;
 
 
 void insertatBeg(int val)
@@ -14,6 +16,14 @@ newNode->data=val;
 newNode->next=head;
 head=newNode;
 }
+void insertatBeg1(int val)
+{
+struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+newNode->data=val;
+newNode->next=head1;
+head1=newNode;
+}  
+
 void insertatEnd(int val)
 {
     struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
@@ -33,6 +43,25 @@ void insertatEnd(int val)
     t->next=newNode;
 }
 }
+void insertatEnd1(int val)
+{
+    struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    newNode->next=NULL;
+    if(head1==NULL)
+    {
+        head=newNode;
+
+    }
+    else{
+    struct Node* t=head1;
+    while(t->next!=NULL)
+    {
+        t=t->next;
+    }
+    t->next=newNode;
+}
+}
 void insertatMid(int val,int pos)
 {
     
@@ -45,6 +74,31 @@ void insertatMid(int val,int pos)
     struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
     newNode->data=val;
     struct Node* t=head;
+    for(int i=1;i<pos-1 && t!=NULL;i++)
+    {
+        t=t->next;
+    }
+    if (t == NULL) {
+            printf("Position out of Bounds\n");
+            free(newNode);
+            return;
+        }
+    newNode->next=t->next;
+    t->next=newNode;
+}
+}
+void insertatMid1(int val,int pos)
+{
+    
+    if(pos==1)
+    {
+        insertatBeg1(val);
+    
+    }
+    else{
+    struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+    newNode->data=val;
+    struct Node* t=head1;
     for(int i=1;i<pos-1 && t!=NULL;i++)
     {
         t=t->next;
@@ -159,11 +213,55 @@ while(t!=NULL)
     t=t->next;
 }
 printf("null");
+
 }
+void display1()
+{
+    if(head1==NULL)
+{
+printf(" Empty list \n");
+return;
+}
+struct Node* t=head1;
+while(t!=NULL)
+{
+    printf("%d->",t->data);
+    t=t->next;
+}
+printf("null");
+
+}
+void merge()
+{
+    if(head==NULL)
+{
+printf(" Empty list \n");
+return;
+}
+struct Node* t=head;
+while(t->next!=NULL)
+{
+    t=t->next;
+}
+struct Node* temp=head1;
+if(t->next==NULL)
+{
+    t->next=temp;
+
+}
+struct Node* tp=head;
+while(tp!=NULL)
+{
+    printf("%d->",tp->data);
+    tp=tp->next;
+}
+printf("null");
+}
+
 int main(){
     int choice,pos,val,key;
     while(1){
-        printf("\n1.Insert at beginning \n2.Insert at End \n3.Insert at Middle  \n4.Delete at Beginning \n5.Delete at End \n6.Delete at Middle \n7.Search \n8.Display");
+        printf("\n1.Insert at beginning \n2.Insert at End \n3.Insert at Middle  \n4.Delete at Beginning \n5.Delete at End \n6.Delete at Middle \n7.Search \n8.Display \n9.Sort \n10.Exit  \n11.secondlistinsertatbeg \n12.secondlistinsertatend \n13.secondlistinsertatmid \n14.displaysecondlist \n.15.merge");
         printf("\n Enter choice:");
         scanf("%d",&choice);
         switch(choice){
@@ -214,7 +312,40 @@ int main(){
             display();
             break;
 
-            case 9:
+            case 11:
+            printf("enter element to insert at the beginning:");
+            scanf("%d",&val);
+            insertatBeg1(val);
+            break;
+            
+            case 12:
+            printf("enter element to insert at end:");
+            scanf("%d",&val);
+            insertatEnd1(val);
+            break;
+
+            case 13:
+            printf(" Enter element to insert : ");
+            scanf("%d",&val);
+            printf(" Enter the Position : ");
+            scanf("%d",&pos);
+            insertatMid1(val,pos);
+            break;
+             
+            case 14:
+            printf("\nThe  second list elements are :  ");
+            display1();
+            break;
+
+            case 15:
+            printf("the merged list is:");
+            merge();
+            break;
+
+
+            
+
+            case 10:
             return 0;
             break;
 
