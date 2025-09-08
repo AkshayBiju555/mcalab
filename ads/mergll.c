@@ -3,11 +3,9 @@
 struct Node{
     int data;
     struct Node* next;
-    struct Node* prev;
 };
 struct Node* head=NULL;
 struct Node* head1=NULL;
-
 
 void insertatBeg(int val)
 {
@@ -32,7 +30,6 @@ void insertatEnd(int val)
     if(head==NULL)
     {
         head=newNode;
-
     }
     else{
     struct Node* t=head;
@@ -51,7 +48,6 @@ void insertatEnd1(int val)
     if(head1==NULL)
     {
         head=newNode;
-
     }
     else{
     struct Node* t=head1;
@@ -64,11 +60,9 @@ void insertatEnd1(int val)
 }
 void insertatMid(int val,int pos)
 {
-    
     if(pos==1)
     {
         insertatBeg(val);
-    
     }
     else{
     struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
@@ -85,15 +79,13 @@ void insertatMid(int val,int pos)
         }
     newNode->next=t->next;
     t->next=newNode;
-}
+    }
 }
 void insertatMid1(int val,int pos)
 {
-    
     if(pos==1)
     {
         insertatBeg1(val);
-    
     }
     else{
     struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
@@ -110,7 +102,7 @@ void insertatMid1(int val,int pos)
         }
     newNode->next=t->next;
     t->next=newNode;
-}
+    }
 }
 
 void deletefromBeg()
@@ -173,7 +165,6 @@ void deletefromMid(int pos)
     t->next=del->next;
     free(del);
     printf(" Element at %d deleted Succesfully",pos);
-
 }
 void searchelement(int key)
 {
@@ -190,11 +181,9 @@ while(t!=NULL)
    {
     printf(" Element found at position : %d \n",pos);
     return;
-
    }
    t=t->next;
    pos++;
-
 }
 printf(" Element not found \n");
 }
@@ -213,7 +202,6 @@ while(t!=NULL)
     t=t->next;
 }
 printf("null");
-
 }
 void display1()
 {
@@ -264,7 +252,8 @@ int main(){
         printf("\n1.Insert at beginning \n2.Insert at End \n3.Insert at Middle  \n4.Delete at Beginning \n5.Delete at End \n6.Delete at Middle \n7.Search \n8.Display \n9.Sort \n10.Exit  \n11.secondlistinsertatbeg \n12.secondlistinsertatend \n13.secondlistinsertatmid \n14.displaysecondlist \n.15.merge");
         printf("\n Enter choice:");
         scanf("%d",&choice);
-        switch(choice){
+        switch(choice)
+        {
             case 1:
             printf("enter element to insert at the beginning:");
             scanf("%d",&val);
@@ -342,18 +331,13 @@ int main(){
             merge();
             break;
 
-
-            
-
             case 10:
             return 0;
             break;
 
             default:
             printf(" \n Invalid choice \n");
-        
-
+    
         }
-
     }
 }

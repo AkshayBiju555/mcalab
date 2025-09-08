@@ -1,16 +1,13 @@
 <html>
     <head>
         <title>registration form</title>
-
     </head>
-    <!--  style="background-repeat:no-repeat"  -->
+    <!--  style="background-repeat:no-repeat"-->
     <body background="bg.jpg">
-        
-        <h1  style="color:red"><marquee onmouseover="this.stop()" onmouseout="this.start()">WELCOME TO FRESHER'S WORLD</marquee></h1>
+        <h1  style="color:red"><marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">WELCOME TO FRESHER'S WORLD</marquee></h1>
         <form>
             <center>
-            <table border="2">
-                
+            <table border="8">
                 <tr>
                     <th colspan="2"><b><U>REGISTRATION FORM</U></b></th>
                 </tr>
@@ -20,22 +17,25 @@
                 </tr>
                 <tr>
                     <td>Age</td>
-                    <td><select name="age" required>
-                        <option >SELECT</option>
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25+</option>
-                    </select></td>
-                    
-                </tr><tr>
+                    <td>
+                        <select name="age" required>
+                            <option >SELECT</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25+</option>
+                        </select>
+                    </td>  
+                </tr>
+                <tr>
                     <td>Password</td>
                     <td><input type="password"></td>
-                </tr><tr>
+                </tr>
+                <tr>
                     <td>Re-enter password</td>
                     <td><input type="password"></td>
                 </tr>
@@ -44,11 +44,10 @@
                     <td><input type="radio" name="M">What is your pet name?</td></tr>
                     <tr><td><input type="radio" name="M">Who is your best friend?</td></tr>
                     <tr><td><input type="radio" name="M">What is yout favorite color?</td></tr>
-                    <tr><td><input type="radio" name="M">Who is your favorite teacher?</td></tr>
-                    
+                    <tr><td><input type="radio" name="M">Who is your favorite teacher?</td></tr>  
                 </tr>
                 <tr>
-                    <td>Answer of security question</td>
+                    <td>Answer of security question &nbsp;  &nbsp;  &nbsp; </td>
                     <td><input type="text"></td>
                 </tr>
                 <tr>
@@ -63,35 +62,29 @@
                 </tr>
                 <tr>
                     <td >phone number</td>
-                    <td><table broder="2">
-                    <tr><th>Home</th>
-                        <th>office</th>
-                    </tr>
-                        <tr>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                        </tr>
-                       
-                    </table>
-                     </td>
+                    <td>
+                        <table broder="2">
+                            <tr>
+                                <th>Home</th>
+                                <th>office</th>
+                            </tr>
+                            <tr>
+                                <td><input type="number"></td>
+                                <td><input type="number"></td>
+                            </tr> 
+                        </table>
+                    </td>
                 </tr>
-               
                 <tr>
                     <td>Upload CV</td>
                     <td><input type="file"></td>
                 </tr>
-                
                 <tr>
-                    
                     <td align="center"><input type="reset" value="reset"></td>
                     <td align="center"><input type="submit" value="submit"></td>
-                    
                 </tr>
-                
-                
-                
-                </table>
-                </center>
-                </form>
-                </body>
-                </html>
+            </table>
+            </center>
+        </form>
+    </body>
+</html>
