@@ -1,6 +1,18 @@
 h1,h2,h3,h4,h5,h6
 {
     color:red;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+
+
+}
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+
+                color:darkblue;
+                 text-decoration:shadow;
+                  font-weight: bold;
+                  cursor: pointer;
 }
 p
 {
@@ -8,7 +20,41 @@ p
     background-color:beige;
 }
 
+a:link
+{
+ color:violet;
+ text-decoration: none;
+}
+
 a:visited
 {
- color:red;
+    color:cornflowerblue;
 }
+
+a:hover
+{
+    color:red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+a:active
+{
+    color:green;
+}
+footer {
+      text-align: center;
+      padding: 30px 0;
+      background: linear-gradient(to bottom, #c15e5e, #000000df);
+      font-size: 1.2em;
+      color:  white;
+      border-top: 2px solid #ccc;
+    }
+header{
+    text-align: center;
+      padding: 30px 0;
+      background: linear-gradient(to top, #c15e5e, #000000df);
+      font-size:100px;
+      color: white;
+      border-top: 2px solid #ccc;
+}
+
