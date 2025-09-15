@@ -1,0 +1,27 @@
+<html>
+    <body >
+        <h1 id="a">hello</h1>
+        <button id="cc" onclick=red();>red</button>
+        <button id="cc" onclick=green();>green</button>
+        <button id="cc" onclick=blue();>blue</button>
+        <h1 id="abc"></h1>
+        <script>
+            function red()
+            {
+                document.getElementById("a").style.color="red";
+
+            }
+            function green()
+            {
+                document.getElementById("a").style.color="green";
+            }
+            function blue()
+            {
+                document.getElementById("a").style.color="blue";
+            }
+            let x=prompt("Enter your name :");
+            document.getElementById("abc").innerHTML="welcome    "+x;
+            alert("welcome    "+x);
+        </script>
+    </body>
+</html>

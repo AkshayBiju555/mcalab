@@ -1,0 +1,103 @@
+<html>
+    <head>
+<style>
+    *{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    h3{
+       color: brown; 
+       text-decoration:underline;
+    }
+    button{
+          background-color: white;
+  color: black;
+  width: 270px;
+    }
+button:hover {
+  background-color: #555555;
+  color: white;
+</style>
+    </head>
+    <body bgcolor="beige">
+        <center>
+            <h1><u>JavaScript String & Math functions</u></h1>
+        <h2><u>String functions</u></h2>
+        Enter a string:
+        <input type="text" id="t1"><br>
+        <!-- enter another string: 
+        <input type="text" id="t2"><br> -->
+        <button id="b1" onclick=length()>Find Length</button><br>
+        <button id="b2" onclick=toupper()>convert to  uppercase</button><br>
+        <button id="b3" onclick=tolower()>convert to  lowercase</button><br>
+        <button id="b4" onclick=concatenation()>concat two strings</button><br>
+        <h3 id="a"></h3>
+        <br><br><br>
+        <h2><u>Math functions</u></h2>
+        enter a Number
+        <input type="number" id="n1"><br>
+        <button id="b5" onclick=mathsq()>Find square root</button><br>
+        <button id="b5" onclick=round()>Find roundoff</button><br>
+        <button id="b5" onclick=ceil()>Find ceiling of the float number</button><br>
+        <button id="b5" onclick=floor()>Find floor of the float number</button><br>
+        <button id="b6" onclick=power()>Find power of the float number</button><br>
+        <h3 id="a1"></h3>
+        <script>
+            function length()
+            {
+               let y=document.getElementById("t1").value;
+               document.getElementById("a").innerHTML="String length ="+ y.length;
+            }
+            function toupper()
+            {
+                let y=document.getElementById("t1").value;
+               document.getElementById("a").innerHTML="UPPERCASE ="+ y.toUpperCase();
+            }
+            function tolower()
+            {
+                let y=document.getElementById("t1").value;
+                 document.getElementById("a").innerHTML="lowercase ="+ y.toLowerCase();
+
+            }
+            function concatenation()
+            {
+                let x=document.getElementById("t1").value;
+                let y=prompt("enyer the second string");
+                document.getElementById("a").innerHTML="concatenated string ="+ x+y;
+                
+           }
+           function mathsq()
+           {
+            let x=parseFloat(document.getElementById("n1").value);
+            document.getElementById("a1").innerHTML="square root= "+ Math.sqrt(x);
+            
+           }
+           function round()
+           {
+            let x=parseFloat(document.getElementById("n1").value);
+            document.getElementById("a1").innerHTML="roundoff= "+ Math.round(x);
+            
+           }
+           function ceil()
+           {
+            let x=parseFloat(document.getElementById("n1").value);
+            document.getElementById("a1").innerHTML="ceiling of float= "+ Math.ceil(x);
+            
+           }
+           function floor()
+           {
+            let x=parseFloat(document.getElementById("n1").value);
+            document.getElementById("a1").innerHTML="ceiling of float= "+ Math.floor(x);
+            
+           }
+           function power()
+           {
+            
+            let x=parseFloat(document.getElementById("n1").value);
+            let y=prompt("enter the power");
+            document.getElementById("a1").innerHTML="power= "+ Math.pow(x,y);
+           } 
+        </script>
+        
+       </center>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <h1>Addition</h1>
+        Number 1 : 
+        <input type="text" id="t1"><br><br>
+        Number 2 : 
+        <input type="text" id="t2"><br><br>
+        <button id="sum" onclick=sum();>add</button>
+        <h1 id="a"></h1>
+        <button id="cc" onclick=colour();>click here</button>
+        <script>
+            function sum()
+            {
+            let x=parseInt(document.getElementById("t1").value);
+            //let x=Number(document.getElementById("t1").value);
+            let y=parseInt(document.getElementById("t2").value);
+            let z=x+y;
+            document.getElementById("a").innerHTML="Sum ="+z;
+            alert("sum="+z);
+            }
+            function colour()
+            {
+                document.getElementById("a").style.color="red";
+            }
+        </script>   
+    </body>
+</html>
