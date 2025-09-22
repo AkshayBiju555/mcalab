@@ -29,6 +29,7 @@
         <button id="b2" onclick=toupper()>convert to  uppercase</button><br>
         <button id="b3" onclick=tolower()>convert to  lowercase</button><br>
         <button id="b4" onclick=concatenation()>concat two strings</button><br>
+        <button id="b4" onclick=search()>Search word position</button><br>
         <h3 id="a"></h3>
         <br><br><br>
         <h2><u>Math functions</u></h2>
@@ -39,6 +40,7 @@
         <button id="b5" onclick=ceil()>Find ceiling of the float number</button><br>
         <button id="b5" onclick=floor()>Find floor of the float number</button><br>
         <button id="b6" onclick=power()>Find power of the float number</button><br>
+        <button id="b6" onclick=maxmin()>Find Maximum and minimum among the two numbers</button><br>
         <h3 id="a1"></h3>
         <script>
             function length()
@@ -60,9 +62,15 @@
             function concatenation()
             {
                 let x=document.getElementById("t1").value;
-                let y=prompt("enyer the second string");
+                let y=prompt("enter the second string");
                 document.getElementById("a").innerHTML="concatenated string ="+ x+y;
                 
+           }
+           function search()
+           {
+            let x=document.getElementById("t1").value;
+            let y=prompt("enter the word to search");
+            document.getElementById("a").innerHTML="word found at position ="+ x.search(y);
            }
            function mathsq()
            {
@@ -95,6 +103,12 @@
             let y=prompt("enter the power");
             document.getElementById("a1").innerHTML="power= "+ Math.pow(x,y);
            } 
+           function maxmin()
+           {
+            let x=parseFloat(document.getElementById("n1").value);
+            let y=prompt("enter the second number");
+            document.getElementById("a1").innerHTML="MAX= "+ Math.max(x,y) + "MIN= "+ Math.min(x,y);
+           }
         </script>
         
        </center>
