@@ -1,4 +1,4 @@
-n=int(input("enter a number"))
-for i in range(1,n+1):
+num=list(map(int,input("enter integers : ").split()))
+for i in num:
     sq=i**2
-    print("squared number of ",i,"is",sq)
+    print("square of ",i,"is",sq)

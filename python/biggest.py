@@ -4,4 +4,6 @@ if x>y and x>z:
 elif y>x and y>z:
     print(y+" is greater")
 else:
-    print(z+" is grteater")
+    print(z+" is greater")
+    
+

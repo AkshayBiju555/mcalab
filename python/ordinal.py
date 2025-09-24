@@ -1,3 +1,4 @@
-word=input("enter a word:")
+word=list(input("enter word : "))
 for i in word:
-    print(ord(i))
+    print("ordinal value of the letters",i," are:" ,ord(i))
+    

@@ -2,7 +2,7 @@
     <head>
 <style>
     *{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     h3{
        color: brown; 
@@ -11,11 +11,14 @@
     button{
         background-color: white;
         border-radius: 3px;
-        width: 270px;
+        width: 275px;
     }
     button:hover {
-        background-color: #555555;
+        background-color: teal;
         color: white;
+    }
+    h1,h2{
+        color:teal;
     }
 </style>
     </head>
@@ -30,6 +33,14 @@
         <button id="b3" onclick=tolower()>convert to  lowercase</button><br>
         <button id="b4" onclick=concatenation()>concat two strings</button><br>
         <button id="b4" onclick=search()>Search word position</button><br>
+        <button onclick="reverse()">Reverse String</button><br>
+        <button onclick="sliceText()">Slice String</button><br>
+        <button onclick="splitText()">Split String</button><br>
+        <button onclick="trimText()">Trim String</button><br>
+        <button onclick="replaceText()">Replace Text</button><br>
+        <button onclick="substringText()">Substring</button><br>
+        <button onclick="charAt()">Character at Index</button><br>
+
         <h3 id="a"></h3>
         <br><br><br>
         <h2><u>Math functions</u></h2>
@@ -41,6 +52,10 @@
         <button id="b5" onclick=floor()>Find floor of the float number</button><br>
         <button id="b6" onclick=power()>Find power of the float number</button><br>
         <button id="b6" onclick=maxmin()>Find Maximum and minimum among the two numbers</button><br>
+        <button onclick="abs()">Absolute Value</button><br>
+        <button onclick="trunc()">Truncate</button><br>
+        <button onclick="random()">Generate Random Number</button><br>
+        <button onclick="mathConstants()">Show π and e</button><br>
         <h3 id="a1"></h3>
         <script>
             function length()
@@ -57,14 +72,12 @@
             {
                 let y=document.getElementById("t1").value;
                  document.getElementById("a").innerHTML="lowercase ="+ y.toLowerCase();
-
             }
             function concatenation()
             {
                 let x=document.getElementById("t1").value;
                 let y=prompt("enter the second string");
                 document.getElementById("a").innerHTML="concatenated string ="+ x+y;
-                
            }
            function search()
            {
@@ -72,6 +85,45 @@
             let y=prompt("enter the word to search");
             document.getElementById("a").innerHTML="word found at position ="+ x.search(y);
            }
+           function reverse() {
+    let str = document.getElementById("t1").value;
+    let reversed = str.split("").reverse().join("");
+    document.getElementById("a").innerHTML = "Reversed string = " + reversed;
+}
+function sliceText() {
+                let str = document.getElementById("t1").value;
+                let start = prompt("Enter start index:");
+                let end = prompt("Enter end index:");
+                document.getElementById("a").innerHTML = "Sliced string = " + str.slice(start, end);
+            }
+            function splitText() {
+                let str = document.getElementById("t1").value;
+                let sep = prompt("Enter separator (e.g., space, comma):");
+                document.getElementById("a").innerHTML = "Split = " + str.split(sep);
+            }
+
+            function trimText() {
+                let str = document.getElementById("t1").value;
+                document.getElementById("a").innerHTML = "Trimmed = '" + str.trim() + "'";
+            }
+            function replaceText() {
+                let str = document.getElementById("t1").value;
+                let toReplace = prompt("Enter text to replace:");
+                let replaceWith = prompt("Enter replacement text:");
+                document.getElementById("a").innerHTML = "After replace: " + str.replace(toReplace, replaceWith);
+            }
+
+            function substringText() {
+                let str = document.getElementById("t1").value;
+                let start = prompt("Enter start index:");
+                let end = prompt("Enter end index:");
+                document.getElementById("a").innerHTML = "Substring = " + str.substring(start, end);
+            }
+            function charAt() {
+                let str = document.getElementById("t1").value;
+                let index = prompt("Enter index:");
+                document.getElementById("a").innerHTML = "Character at index " + index + " = " + str.charAt(index);
+            }
            function mathsq()
            {
             let x=parseFloat(document.getElementById("n1").value);
@@ -82,23 +134,19 @@
            {
             let x=parseFloat(document.getElementById("n1").value);
             document.getElementById("a1").innerHTML="roundoff= "+ Math.round(x);
-            
            }
            function ceil()
            {
             let x=parseFloat(document.getElementById("n1").value);
             document.getElementById("a1").innerHTML="ceiling of float= "+ Math.ceil(x);
-            
            }
            function floor()
            {
             let x=parseFloat(document.getElementById("n1").value);
             document.getElementById("a1").innerHTML="ceiling of float= "+ Math.floor(x);
-            
            }
            function power()
            {
-            
             let x=parseFloat(document.getElementById("n1").value);
             let y=prompt("enter the power");
             document.getElementById("a1").innerHTML="power= "+ Math.pow(x,y);
@@ -109,6 +157,24 @@
             let y=prompt("enter the second number");
             document.getElementById("a1").innerHTML="MAX= "+ Math.max(x,y) + "MIN= "+ Math.min(x,y);
            }
+           function abs() {
+                let x = parseFloat(document.getElementById("n1").value);
+                document.getElementById("a1").innerHTML = "Absolute = " + Math.abs(x);
+            }
+
+            function trunc() {
+                let x = parseFloat(document.getElementById("n1").value);
+                document.getElementById("a1").innerHTML = "Truncated = " + Math.trunc(x);
+            }
+
+            function random() {
+                let rand = Math.random();
+                document.getElementById("a1").innerHTML = "Random number (0–1) = " + rand;
+            }
+
+            function mathConstants() {
+                document.getElementById("a1").innerHTML = "PI = " + Math.PI + ", e = " + Math.E;
+            }
         </script>
         
        </center>

@@ -6,34 +6,29 @@
 <body bgcolor="beige">
   <h1 align="center">Calendar</h1>
   <div id="abc"></div>
-
   <script>
-    window.onload = () => 
+    window.onload = () =>
     {
-      const year = +prompt("Enter year:");
-
+      const year = +prompt("Enter year: ");
       const months = ["January","Febuary","March","April","May","June","July","August","September","October","November","December"];
       let html = "";
-
-      for(let m=0; m<12; m++) {
-        html += `<h2>${months[m]} ${year}</h2><table border=1><tr>
-          <th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr><tr>`;
-
+      for(let m=0; m<12; m++) 
+      {
+        html += `<h2>${months[m]} ${year}
+            </h2><table border=1>
+                <tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr><tr>`;
         let d = new Date(year, m, 1);
         let start = (d.getDay()+6)%7; 
-
-        for(let i=0; i<start; i++) html += "<td></td>";
-
+        for(let i=0; i<start; i++) 
+            html += "<td></td>";
         while(d.getMonth() === m) 
         {
           html += `<td>${d.getDate()}</td>`;
           if(d.getDay()===0) html += "</tr><tr>"; 
           d.setDate(d.getDate()+1);
         }
-
         html += "</tr></table>";
       }
-
       document.getElementById("abc").innerHTML = html;
     };
   </script>
