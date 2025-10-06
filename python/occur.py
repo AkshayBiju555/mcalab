@@ -9,11 +9,3 @@ for char in a:
             count=count+1
     print("the occurence of",char,"is",count,"times")
     count=0
-
-        
-       
-       
-     
-
-
-  

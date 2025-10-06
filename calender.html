@@ -20,7 +20,10 @@
         let d = new Date(year, m, 1);
         let start = (d.getDay()+6)%7; 
         for(let i=0; i<start; i++) 
-            html += "<td></td>";
+        {
+          html += "<td></td>";
+        }
+            
         while(d.getMonth() === m) 
         {
           html += `<td>${d.getDate()}</td>`;
