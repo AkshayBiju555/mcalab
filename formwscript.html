@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>registration form</title>
+    </head>
+    <!--  style="background-repeat:no-repeat"-->
+    <body background="bg.jpg">
+        <h1  style="color:red"><marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">WELCOME TO FRESHER'S WORLD</marquee></h1>
+        <form name="myform" onsubmit="return validateForm(event)">
+            <center>
+            <table border="8">
+                <tr>
+                    <th colspan="2"><b><U>REGISTRATION FORM</U></b></th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="abc" placeholder="enter your name"></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>
+                       <input type="text" id="age">
+                       <p id="p1"></p>
+                    </td>  
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td>Re-enter password</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td rowspan="4">Select your security question</td>
+                    <td><input type="radio" name="M">What is your pet name?</td></tr>
+                    <tr><td><input type="radio" name="M">Who is your best friend?</td></tr>
+                    <tr><td><input type="radio" name="M">What is yout favorite color?</td></tr>
+                    <tr><td><input type="radio" name="M">Who is your favorite teacher?</td></tr>  
+                </tr>
+                <tr>
+                    <td>Answer of security question &nbsp;  &nbsp;  &nbsp; </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Languages known</td>
+                    <td><input type="checkbox" name="N">Malayalam
+                    <input type="checkbox" name="N">Hindi
+                <input type="checkbox" name="N">English</td>
+                </tr>
+                <tr>
+                    <td >phone number</td>
+                    <td>
+                        <table broder="2">
+                            <tr>
+                                <th>Home</th>
+                                <th>office</th>
+                            </tr>
+                            <tr>
+                                <td><input type="number" id="num"></td>
+                                <td><input type="number" id="num"></td>
+                                <p id="p"></p>
+                            </tr> 
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload CV</td>
+                    <td><input type="file"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="reset" value="reset"></td>
+                    <td align="center"><input type="submit" value="submit"></td>
+                </tr>
+            </table>
+            </center>
+        </form>
+        <script>
+            function validation()
+            {
+                 event.preventDefault();
+                let x=document.forms["myform"]["num"].value;
+                if(isNaN(x) || x<9)
+                {
+                    document.getElementById("p").innerHTML="Not a valid phone number";
+
+                }
+                let y=document.forms["myform"]["age"].value;
+                if(isNaN(y)||y<18)
+                {
+                    document.getElementById("p1").innerHTML="Not a valid age";
+                }
+
+            }
+        </script>
+    </body>
+</html>

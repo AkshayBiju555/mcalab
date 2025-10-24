@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Form Validation</title>
+<style>
+  .required { color: red; }
+  .error { color: red; font-size: 14px; }
+</style>
+</head>
+<body>
+<center>
+<h3>Form Validation</h3>
+
+<form onsubmit="return validateForm(event)">
+  Name <b class="required">*</b>
+  <input type="text" id="name"><br>
+  <p id="nameError" class="error"></p>
+
+  Email <b class="required">*</b>
+  <input type="text" id="email"><br>
+  <p id="emailError" class="error"></p>
+
+  Age <b class="required">*</b>
+  <input type="text" id="age"><br>
+  <p id="ageError" class="error"></p>
+
+  Phone <b class="required">*</b>
+  <input type="text" id="phone"><br>
+  <p id="phoneError" class="error"></p>
+
+  Password <b class="required">*</b>
+  <input type="password" id="password"><br>
+  <p id="passwordError" class="error"></p>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm(event) {
+  event.preventDefault();
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let age = document.getElementById("age").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let password = document.getElementById("password").value.trim();
+
+
+  document.getElementById("nameError").innerHTML = "";
+  document.getElementById("emailError").innerHTML = "";
+  document.getElementById("ageError").innerHTML = "";
+  document.getElementById("phoneError").innerHTML = "";
+  document.getElementById("passwordError").innerHTML = "";
+
+  let valid = true;
+
+if (name.match(/^[A-Za-z\s]+$/)) 
+  {
+    
+  } else {
+    document.getElementById("nameError").innerHTML = "Name must contain only letters and spaces";
+    valid = false;
+  }
+
+  
+  if ((email.match(/^[^@]+@[^@]+\.com$/))) {
+    
+  } else {
+    document.getElementById("emailError").innerHTML = "Email must be valid and end with .com";
+    valid = false;
+  }
+
+  
+  if (age.match(/^\d+$/) && Number(age) >= 18) {
+    
+  } else {
+    document.getElementById("ageError").innerHTML = "Age must be a number and at least 18";
+    valid = false;
+  }
+  if (phone.match(/^\d{10}$/)) {
+    
+  } else {
+    document.getElementById("phoneError").innerHTML = "Phone must be exactly 10 digits";
+    valid = false;
+  }
+  if (password.match(/^[A-Za-z\d@$!%*#?&]{8,}$/)) {
+  } else {
+    document.getElementById("passwordError").innerHTML =
+      "Password must be at least 8 chars and include letters, numbers, and special characters";
+    valid = false;
+  }
+  if (valid) {
+    alert("Form submitted successfully!");
+  }
+}
+</script>
+</center>
+</body>
+</html>

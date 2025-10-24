@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>new form</title>
+    </head>
+    <body>
+        <form name="myform" onsubmit="validation()">
+            <center>
+           <input type="text" placeholder="enter a number" name="abc">
+           <button type="submit" value="submit">submit</button>
+           
+           </center>
+           <script>
+            function validation()
+            {
+                //let x=document.getElementById("abc").value;
+                let x=document.forms["myform"]["abc"].value;
+                if(isNaN(x))
+                {
+                    alert(" Not a number");
+
+                }
+                
+            }
+           </script>
+        </form>
+    </body>
+</html>
