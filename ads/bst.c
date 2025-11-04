@@ -1,18 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-struct node{
+struct node
+{
     int data;
     struct node *left;
     struct node *right;
 };
-
 struct node *root=NULL;
-
 int display();
 void insertion();
 void deletion();
-
 void main()
 {
     while(1)
@@ -34,12 +31,10 @@ void main()
             case 4:
               return;
             default:
-               break;
-              
+               break;    
         }
     }
 }
-
 //insert a node into the tree and return the root
 struct node *insert(struct node *root,struct node *newNode)
 {
@@ -70,15 +65,13 @@ struct node *find_min(struct node *root)
     }
     return root;
 }
-
-struct node *delete(struct node *root,int value){
+struct node *delete(struct node *root,int value)
+{
     if(root==NULL)
     {
         printf("not found\n");
         return root;
-
     }
-    
     //find the node,while keeping track of the path taken to reach it
     struct node *temp;
     if(value<root->data)
@@ -100,26 +93,20 @@ struct node *delete(struct node *root,int value){
             return temp;
         }
         else if(root->right==NULL)
-        //this is where the deletion of the inorder successor happens
+       
         {
             temp=root->left;
             free(root);
             return temp;
-
-
         }
         //if the node has two children
         //replace the data in the node with the data of its inorder successor
         root->data=find_min(root->right)->data;
         //delete the inorder successor,also maintaining the structure of the tree
-        root->right=delete(root->right,root->data);
-        
-        
+        root->right=delete(root->right,root->data);    
     }
     return root;
-
 }
-
 void deletion()
 {
     int value;
@@ -127,9 +114,7 @@ void deletion()
     scanf("%d",&value);
     root=delete(root,value);
     display();
-
 }
-
 //perform all three traversal to display the tree
 //root->left->right
 void preorder(struct node *root)
@@ -141,7 +126,6 @@ void preorder(struct node *root)
     printf("%d ->",root->data);
     preorder(root->left);
     preorder(root->right);
-
 }
 void inorder(struct node *root)
 {
@@ -159,11 +143,9 @@ void postorder(struct node *root)
     {
         return;
     }
-    
     postorder(root->left);
     postorder(root->right);
     printf("%d ->",root->data);
-
 }
 int display()
 {
