@@ -1,67 +1,61 @@
 #include <stdio.h>
-#include <limits.h>
 
 #define MAX 100
 
-void prim(int n, int graph[MAX][MAX], int start) {
-    int visited[MAX] = {0};
-    int parent[MAX];
-    int minEdge[MAX];
-
-    for(int i=0;i<n;i++){
-        minEdge[i] = INT_MAX;
-        visited[i] = 0;
-    }
-
-    minEdge[start] = 0;
-    parent[start] = -1;
-
-    for(int count=0; count<n; count++){
-        int u = -1;
-        for(int i=0;i<n;i++){
-            if(!visited[i] && (u==-1 || minEdge[i]<minEdge[u])) u=i;
-        }
-
-        visited[u] = 1;
-
-        for(int v=0; v<n; v++){
-            if(graph[u][v] && !visited[v] && graph[u][v]<minEdge[v]){
-                minEdge[v] = graph[u][v];
-                parent[v] = u;
-            }
-        }
-    }
-
-    printf("\nPrim's MST:\n");
-    for(int i=0;i<n;i++){
-        if(parent[i]!=-1)
-            printf("%d -- %d  weight=%d\n", parent[i], i, graph[i][parent[i]]);
-    }
-}
-
 int main() {
-    int n, e;
-    int graph[MAX][MAX] = {0};
+    int n, start;
+    int graph[MAX][MAX];
+    int visited[MAX] = {0};
+    int totalCost = 0; // To store total weight of MST
 
+    // Step 1: Input number of vertices
     printf("Enter number of vertices: ");
     scanf("%d", &n);
 
-    printf("Enter number of edges: ");
-    scanf("%d", &e);
+    // Step 2: Input adjacency matrix
+    printf("Enter adjacency matrix (use 0 for no edge):\n");
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            scanf("%d", &graph[i][j]);
 
-    printf("Enter edges (u v weight):\n");
-    for(int i=0;i<e;i++){
-        int u, v, w;
-        scanf("%d %d %d", &u, &v, &w);
-        graph[u][v] = w;
-        graph[v][u] = w; // undirected graph
-    }
-
-    int start;
-    printf("Enter starting vertex: ");
+    // Step 3: Input starting vertex
+    printf("Enter starting vertex (0 to %d): ", n-1);
     scanf("%d", &start);
 
-    prim(n, graph, start);
+    visited[start] = 1; // Mark starting vertex as visited
+    printf("Prim's MST edges:\n");
+
+    // Step 4: Build MST
+    for (int count = 0; count < n - 1; count++) {
+        int u = -1, v = -1;
+        int found = 0; // Flag to initialize min with first valid edge
+        int min;
+
+        // Find minimum edge connecting visited to unvisited vertex
+        for (int i = 0; i < n; i++) {
+            if (visited[i]) {
+                for (int j = 0; j < n; j++) {
+                    if (!visited[j] && graph[i][j]) {
+                        if (!found || graph[i][j] < min) {
+                            min = graph[i][j];
+                            u = i;
+                            v = j;
+                            found = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add edge to MST
+        if (u != -1 && v != -1) {
+            printf("%d -- %d  weight = %d\n", u, v, min);
+            visited[v] = 1;
+            totalCost += min; // Add edge weight to total cost
+        }
+    }
+
+    printf("Total cost of MST = %d\n", totalCost);
 
     return 0;
 }
