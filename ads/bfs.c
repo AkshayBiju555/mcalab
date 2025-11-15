@@ -5,17 +5,21 @@
 
 int queue[MAX], front = -1, rear = -1;
 
-// Function to enqueue a node
+
 void enqueue(int node) {
     if (rear == MAX - 1) {
         printf("Queue Overflow\n");
         return;
     }
-    if (front == -1) front = 0;
+    if (front == -1)
+    {
+        front = 0;
+
+    } 
     queue[++rear] = node;
 }
 
-// Function to dequeue a node
+
 int dequeue() {
     if (front == -1) {
         printf("Queue Underflow\n");

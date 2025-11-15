@@ -74,7 +74,7 @@ struct node *delete(struct node *root,int value)
     }
     //find the node,while keeping track of the path taken to reach it
     struct node *temp;
-    if(value<root->data)
+    if(value < root->data)
     {
         root->left=delete(root->left,value);
     }
