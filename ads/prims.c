@@ -26,14 +26,17 @@ int main() {
     printf("Prim's MST edges:\n");
 
     // Step 4: Build MST
-    for (int count = 0; count < n - 1; count++) {
+    for (int count = 0; count < n - 1; count++) 
+    {
         int u = -1, v = -1;
         int found = 0; // Flag to initialize min with first valid edge
         int min;
 
         // Find minimum edge connecting visited to unvisited vertex
-        for (int i = 0; i < n; i++) {
-            if (visited[i]) {
+        for (int i = 0; i < n; i++) 
+        {
+            if (visited[i]) 
+            {
                 for (int j = 0; j < n; j++) {
                     if (!visited[j] && graph[i][j]) {
                         if (!found || graph[i][j] < min) {
@@ -48,7 +51,8 @@ int main() {
         }
 
         // Add edge to MST
-        if (u != -1 && v != -1) {
+        if (u != -1 && v != -1) 
+        {
             printf("%d -- %d  weight = %d\n", u, v, min);
             visited[v] = 1;
             totalCost += min; // Add edge weight to total cost
