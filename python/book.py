@@ -22,6 +22,6 @@ class Python(Book):
         print(f"price:${this.price}\nnumber of pages:{this.numofpages}")
 
 book=Python(name="DC Books",title="deception point",author="Dan Brown",price=24.99,numofpages=300)
-book.display() #overrides the other two display methods
-Book.display(book) #to call display() in book class
-Publisher.display(book)  #to call display() in publisher class
+#book.display() #overrides the other two display methods
+#Book.display(book) #to call display() in book class
+#Publisher.display(book)  #to call display() in publisher class
