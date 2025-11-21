@@ -1,59 +1,79 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #define MAX 100
 
-struct Edge {
+// Edge structure
+typedef struct {
     int u, v, w;
-};
+} Edge;
 
 int parent[MAX];
 
-int findSet(int x) {
-    if(parent[x]!=x) parent[x] = findSet(parent[x]);
-    return parent[x];
+// Find with no path compression (simple)
+int find(int x) {
+    while (parent[x] != x)
+        x = parent[x];
+    return x;
 }
 
-void unionSet(int x, int y) {
-    parent[findSet(y)] = findSet(x);
+// Simple union
+void Union(int a, int b) {
+    parent[a] = b;
 }
 
-int compare(const void *a, const void *b) {
-    return ((struct Edge*)a)->w - ((struct Edge*)b)->w;
-}
-
-void kruskal(struct Edge edges[], int n, int e) {
-    for(int i=0;i<n;i++) parent[i] = i;
-
-    qsort(edges, e, sizeof(struct Edge), compare);
-
-    printf("\nKruskal's MST:\n");
-    for(int i=0;i<e;i++){
-        int u = edges[i].u;
-        int v = edges[i].v;
-        if(findSet(u) != findSet(v)){
-            printf("%d -- %d  weight=%d\n", u, v, edges[i].w);
-            unionSet(u,v);
+// Simple bubble sort for edges
+void sortEdges(Edge edges[], int E) {
+    for (int i = 0; i < E - 1; i++) {
+        for (int j = 0; j < E - i - 1; j++) {
+            if (edges[j].w > edges[j + 1].w) {
+                Edge temp = edges[j];
+                edges[j] = edges[j + 1];
+                edges[j + 1] = temp;
+            }
         }
     }
 }
 
 int main() {
-    int n, e;
-    struct Edge edges[MAX];
+    int V, E;
 
     printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    scanf("%d", &V);
 
     printf("Enter number of edges: ");
-    scanf("%d", &e);
+    scanf("%d", &E);
 
-    printf("Enter edges (u v weight):\n");
-    for(int i=0;i<e;i++){
+    Edge edges[MAX];
+
+    printf("\nEnter edges (u v weight):\n");
+    for (int i = 0; i < E; i++) {
         scanf("%d %d %d", &edges[i].u, &edges[i].v, &edges[i].w);
     }
 
-    kruskal(edges, n, e);
+    // Initialize parent array
+    for (int i = 0; i < V; i++)
+        parent[i] = i;
+
+    // Sort edges by weight
+    sortEdges(edges, E);
+
+    int mstWeight = 0;
+
+    printf("\nMinimum Spanning Tree:\n");
+
+    // Kruskal's algorithm
+    for (int i = 0; i < E; i++) {
+        int a = find(edges[i].u);
+        int b = find(edges[i].v);
+
+        if (a != b) {
+            printf("%d -- %d == %d\n", edges[i].u, edges[i].v, edges[i].w);
+            mstWeight += edges[i].w;
+            Union(a, b);
+        }
+    }
+
+    printf("\nTotal cost of MST = %d\n", mstWeight);
 
     return 0;
 }
