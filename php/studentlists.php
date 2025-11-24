@@ -87,20 +87,18 @@ session_start();
 <body>
 
     <div class="header">
-        Administrator Control Panel
+        Student home page
     </div>
 
     <div class="content">
         <div class="card">
-            <h2>Welcome, Admin!</h2>
+            <h2>Welcome, Student!</h2>
 
-            <a class="link" href="admin.php" target="self">🏠 Home</a>
-            <a class="link" href="addstudent.php" target="a">➕ Add Student</a>
-            <a class="link" href="managestudent.php" target="a">✏ Update & Delete Student</a>
-            <a class="link" href="update_marks.php" target="a">📘 Manage Student Details</a>
+            <a class="link" href="Studenthome.php" target="self">🏠 Home</a>
+            
             <a class="link" href="showprogress.php" target="a">📘 Show Student Progress report</a>
             <a class="link" href="topstudent.php" target="a">🏆 View Top Student</a>
-            <a class="link" href="adminlogin.php" target="self">🚪 Logout</a>
+            <a class="link" href="studentlogin.php" target="self">🚪 Logout</a>
 
         </div>
     </div>

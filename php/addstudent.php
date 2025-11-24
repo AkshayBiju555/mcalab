@@ -8,7 +8,7 @@
     <h2>Add New Student</h2>
 
     <?php
-    $conn = mysqli_connect("localhost", "root", "", "student");
+    $conn = mysqli_connect("localhost", "root", "", "akshay");
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -20,9 +20,11 @@
         $mark1 = $_POST['mark1'];
         $mark2 = $_POST['mark2'];
         $total = $mark1 + $mark2;
+        $password=$_POST['pwd'];
+        
 
-        $sql = "INSERT INTO bio (name, Rollno, Gender, mark1, mark2, Total)
-                VALUES ('$name', '$rollno', '$gender', '$mark1', '$mark2', '$total')";
+        $sql = "INSERT INTO bio (name, Rollno,Gender,mark1,mark2,Total,password)
+                VALUES ('$name', '$rollno', '$gender', '$mark1', '$mark2', '$total','$password')";
         
         if (mysqli_query($conn, $sql)) {
             echo "<h3 style='color:green;'>Student added successfully!</h3>";
@@ -48,6 +50,7 @@
             </tr>
             <tr><td>Mark 1:</td><td><input type="number" name="mark1" required></td></tr>
             <tr><td>Mark 2:</td><td><input type="number" name="mark2" required></td></tr>
+            <tr><td>password</td><td><input type="number" name="pwd" required></td></tr>
             <tr><td colspan="2" align="center"><input type="submit" name="submit" value="Add Student"></td></tr>
         </table>
     </form>

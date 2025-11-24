@@ -9,15 +9,15 @@ if (!$conn) {
 
 // Check if form is submitted
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
+    $rollno = $_POST['rollno'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM login WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM bio WHERE Rollno='$rollno' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
-        $_SESSION['username'] = $username;  // save username in session
-        header("Location: admin.php");  // go to home page
+        $_SESSION['rollno'] = $rollno;  // save username in session
+        header("Location: Studenthome.php");  // go to home page
         exit();
     } else {
         echo "<center><h3 style='color:red;'>Invalid username or password!</h3></center>";
@@ -30,16 +30,16 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Login</title>
+    <title>Student Login</title>
 </head>
 <body>
 <center>
-    <h2>Admin Login</h2>
+    <h2>student Login</h2>
     <form method="POST">
-        Username: <input type="text" name="username" required><br><br>
+        Rollno: <input type="number" name="rollno" required><br><br>
         Password: <input type="password" name="password" required><br><br>
         <input type="submit" name="submit" value="Login">
-        <a class="link" href="123.php" >back</a>
+        <a class="link" href="123.php" target="self">back</a>
     </form>
 </center>
 </body>
